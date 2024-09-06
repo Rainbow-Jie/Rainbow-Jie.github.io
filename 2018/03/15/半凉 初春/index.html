@@ -1,0 +1,334 @@
+
+<!DOCTYPE html>
+<html lang="en ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>follow your heart || 半凉 初春</title>
+    <meta name="author" content="Nie Zhenjie">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//images/avatar.gif">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/maiden-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">follow your heart</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/like/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+        <a href="https://coding-pages-bucket-3500937-8131722-8242-422373-1304547558.cos-website.ap-hongkong.myqcloud.com">
+            <span>
+                <a-icon type="compass" theme="filled" />
+            </span>
+            <span>英文博客</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>follow your heart</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/like/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+            <a href="https://coding-pages-bucket-3500937-8131722-8242-422373-1304547558.cos-website.ap-hongkong.myqcloud.com">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="compass" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">英文博客</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>半凉 初春 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2018/3/15
+        </span>
+
+        
+        <span class="category">
+            <a href="/categories/book">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" />
+                </span>
+                book
+            </a>
+        </span>
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/感伤" style=color:#ffa2c4>
+                    感伤
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/心情" style=color:#1bccbc>
+                    心情
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <h2 id="半凉-初春"><a href="#半凉-初春" class="headerlink" title="半凉 初春"></a>半凉 初春</h2><p>&emsp;&emsp;久别雨的诗意，突然一个人静一静，才发现，身边少了什么。<br>&emsp;&emsp;在三月这个段落，是开头，亦是感伤。<a id="more"></a><br>&emsp;&emsp;连续几天的闷热，让我对春的到来却没有感到丝毫欢喜。是的，梅花终于还是绽放，该来的，<br>摆脱不了。也许是老天爷的眷顾，这迟来的雨，降临在这个疲倦的大地上。一大块、一大块的乌云，<br>慢吞吞的在我的头顶上飘着。它把我的希望，一粒一粒地撒了下来。雨滴也丝毫不敢怠慢，急促促<br>而下，时疏时密，忽而像一个顽皮的小孩子，转眼间又成了长发飘逸的淑女。一阵阵而来的风也不<br>紧不慢的展示它的才艺，风与雨共舞，竟也别样美丽。<br>&emsp;&emsp;晚风初凉，临风微雨。不远处的小水流嘀嗒而又清脆，几盏路灯挥洒陈旧的光流，偶尔有人匆<br>匆走过，留下几处缓缓的背影。微风拂过衣袖，丝凉丝凉的，我下意识地缩了缩身子，不想被它带走。<br>&emsp;&emsp;可雨是有情的，风是有意的，在无数次的冲向大地时。我感叹万物轮回之苦，却也无能为力。<br>自己是否也像这大地上的一滴雨呢，不知道，可能差不多吧。<br>&emsp;&emsp;还好，我是幸运的，我是这场即兴演出的特邀嘉宾，哪怕就我一个人，它们也尽自己的最完美<br>姿色，去展示给我看，她来过。是的，她来过，她静悄悄的来，也静悄悄的走，留下的，只是残留在<br>手指间的淡淡韵味。她可曾想过，她要是这样走了，那我呢？是留我一个人去独享这夜的寂凉吗？你<br>是不是太有点狠心了。<br>&emsp;&emsp;我最终下了楼，走在了你刚刚逗留过的地方，只是晚风半凉，一泻千里。头发微微飘动，风儿，<br>也要和我说声再见了，留不住的，始终是不属于我的，挥挥手，好好告别吧。<br>&emsp;&emsp;我也走了，在朦胧的路灯下。<br>&emsp;&emsp;只觉得初春渐进，晚风半凉。</p>
+<p><img src="/images/%E4%B8%8B%E9%9B%A8.jpg" alt="下雨"></p>
+
+    </div>
+
+     <!-- 《添加版权声明 -->
+     
+          <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare">
+    <strong class="author">本文作者：</strong>
+    
+      Nie Zhenjie
+    
+    <br>
+    <strong class="update-time">最后更新：</strong>
+    2021-03-20
+    <br>
+    <strong class="article-url">本文出处：</strong>
+    <a href="https://coding-pages-bucket-3500937-8131722-8242-422373-1304547558.cos-website.ap-hongkong.myqcloud.com/" title="" target="_blank">https://coding-pages-bucket-3500937-8131722-8242-422373-1304547558.cos-website.ap-hongkong.myqcloud.com/</a>
+    <br>
+    <strong class="copyright">版权声明：</strong>
+    本作品采用
+    <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" title="知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议">CC BY-NC-SA 4.0</a>
+    许可协议进行许可。转载请注明出处！
+    
+      <br>
+      <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/></a>
+    
+  </div>
+
+<!-- 添加版权声明》 -->
+     
+     <!-- 添加版权声明》 -->
+
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2021 follow your heart
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Nie Zhenjie
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+
+<!--动态线条背景-->
+<script type="text/javascript"
+color="125,210,189" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+</script>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/love.js"></script>
+
+</html>

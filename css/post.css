@@ -1,0 +1,28 @@
+.article {
+  margin: auto;
+  position: relative;
+  top: 100px;
+  color: #72e8fe;
+  padding: 20px;
+  font-size: 15px;
+}
+.article h1 {
+  font-weight: bolder;
+  margin: 20px 0;
+}
+.article .info a {
+  color: #99fd3d;
+  text-decoration: none;
+}
+.article .info .date,
+.article .info .category,
+.article .info .tags {
+  color: #99fd3d;
+  display: inline-block;
+  margin-right: 20px;
+}
+.article .info .date .tag,
+.article .info .category .tag,
+.article .info .tags .tag {
+  margin-right: 10px;
+}
