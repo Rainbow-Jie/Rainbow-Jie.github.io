@@ -62,7 +62,7 @@
 }
 #home-posts {
   position: relative;
-  background: #d3c8fe;
+  background: #fff;
   margin: auto;
 }
 #home-posts h2 {
@@ -73,7 +73,7 @@
 #home-posts .post {
   position: relative;
   border-radius: 20px;
-  background: #e9fff4;
+  background: #fff;
   box-shadow: 0px 0px 20px #53ff9f;
   transform: translate3d(0, 0, 0);
   transition: all 0.4s ease-out;
@@ -104,7 +104,7 @@
   color: text-font;
 }
 #home-posts .post .post-tags a {
-  color: #01acbe;
+  color: #ffbbf4;
   font-size: 14px;
 }
 #home-posts .post .post-tags .tag {
@@ -135,7 +135,7 @@
   width: 100%;
   align-items: center;
   justify-content: center;
-  color: #e9fff4;
+  color: #999;
   margin-top: 50px;
 }
 #home-posts .page-current .prev,
@@ -152,7 +152,7 @@
   color: current-color;
 }
 #home-posts .page-current a {
-  color: #e9fff4;
+  color: #999;
   text-decoration: none;
 }
 #home-posts .page-current .page-num,
@@ -168,7 +168,7 @@
 }
 #home-posts .page-current .page-num:hover {
   background: page-index-active;
-  color: #f00;
+  color: #fff;
 }
 #home-card {
   position: relative;
@@ -210,13 +210,13 @@
   border-bottom: #cdcdcd solid 1px;
 }
 #home-card .card-style .icon-links a {
-  color: #fd69a8;
+  color: label-font;
   font-size: 18px;
   padding: 3px 5px;
   border-radius: 5px;
 }
 #home-card .card-style .icon-links a:hover {
-  color: #d3c8fe;
+  color: #fff;
   background: default-link;
 }
 #home-card .card-style .icon-links .icon-link {
@@ -233,7 +233,7 @@
   display: inline-block;
   width: 140px;
   line-height: 3;
-  color: #fd69a8;
+  color: label-font;
   font-size: 16px;
   border-radius: 15px;
 }

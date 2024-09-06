@@ -38,13 +38,13 @@
   border-bottom: #cdcdcd solid 1px;
 }
 #home-card .card-style .icon-links a {
-  color: #fd69a8;
+  color: label-font;
   font-size: 18px;
   padding: 3px 5px;
   border-radius: 5px;
 }
 #home-card .card-style .icon-links a:hover {
-  color: #d3c8fe;
+  color: #fff;
   background: default-link;
 }
 #home-card .card-style .icon-links .icon-link {
@@ -61,7 +61,7 @@
   display: inline-block;
   width: 140px;
   line-height: 3;
-  color: #fd69a8;
+  color: label-font;
   font-size: 16px;
   border-radius: 15px;
 }

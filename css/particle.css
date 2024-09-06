@@ -3,7 +3,7 @@
   src: url("../css/fonts/CascadiaCode.ttf");
 }
 body {
-  background: body-background;
+  background: #f8eff9;
   width: 100%;
   font-family: default-font-family;
   font-weight: 500;
@@ -231,7 +231,7 @@ a {
 }
 #home-posts {
   position: relative;
-  background: #d3c8fe;
+  background: #fff;
   margin: auto;
 }
 #home-posts h2 {
@@ -242,7 +242,7 @@ a {
 #home-posts .post {
   position: relative;
   border-radius: 20px;
-  background: #e9fff4;
+  background: #fff;
   box-shadow: 0px 0px 20px #53ff9f;
   transform: translate3d(0, 0, 0);
   transition: all 0.4s ease-out;
@@ -273,7 +273,7 @@ a {
   color: text-font;
 }
 #home-posts .post .post-tags a {
-  color: #01acbe;
+  color: #ffbbf4;
   font-size: 14px;
 }
 #home-posts .post .post-tags .tag {
@@ -304,7 +304,7 @@ a {
   width: 100%;
   align-items: center;
   justify-content: center;
-  color: #e9fff4;
+  color: #999;
   margin-top: 50px;
 }
 #home-posts .page-current .prev,
@@ -321,7 +321,7 @@ a {
   color: current-color;
 }
 #home-posts .page-current a {
-  color: #e9fff4;
+  color: #999;
   text-decoration: none;
 }
 #home-posts .page-current .page-num,
@@ -337,7 +337,7 @@ a {
 }
 #home-posts .page-current .page-num:hover {
   background: page-index-active;
-  color: #f00;
+  color: #fff;
 }
 #home-card {
   position: relative;
@@ -379,13 +379,13 @@ a {
   border-bottom: #cdcdcd solid 1px;
 }
 #home-card .card-style .icon-links a {
-  color: #fd69a8;
+  color: label-font;
   font-size: 18px;
   padding: 3px 5px;
   border-radius: 5px;
 }
 #home-card .card-style .icon-links a:hover {
-  color: #d3c8fe;
+  color: #fff;
   background: default-link;
 }
 #home-card .card-style .icon-links .icon-link {
@@ -402,7 +402,7 @@ a {
   display: inline-block;
   width: 140px;
   line-height: 3;
-  color: #fd69a8;
+  color: label-font;
   font-size: 16px;
   border-radius: 15px;
 }
@@ -637,7 +637,7 @@ a {
   padding: 4px 8px;
   border-radius: 4px;
   font-size: 14px;
-  color: #fe90b2;
+  color: code-font;
 }
 .content pre {
   box-shadow: 0 2px 12px 0 rgba(0,0,0,0.1);
@@ -844,7 +844,7 @@ footer .footer-icon {
   margin: auto;
   position: relative;
   top: 100px;
-  color: #72e8fe;
+  color: text-font;
   padding: 20px;
   font-size: 15px;
 }
@@ -853,13 +853,13 @@ footer .footer-icon {
   margin: 20px 0;
 }
 .article .info a {
-  color: #99fd3d;
+  color: #5c6b72;
   text-decoration: none;
 }
 .article .info .date,
 .article .info .category,
 .article .info .tags {
-  color: #99fd3d;
+  color: #5c6b72;
   display: inline-block;
   margin-right: 20px;
 }
@@ -867,6 +867,9 @@ footer .footer-icon {
 .article .info .category .tag,
 .article .info .tags .tag {
   margin-right: 10px;
+}
+.article .content {
+  margin: 50px 0;
 }
 @media (min-width: 900px) {
   #menu .desktop-menu {

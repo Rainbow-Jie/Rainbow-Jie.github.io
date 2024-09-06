@@ -3,7 +3,7 @@
   src: url("../css/fonts/CascadiaCode.ttf");
 }
 body {
-  background: body-background;
+  background: #f8eff9;
   width: 100%;
   font-family: default-font-family;
   font-weight: 500;
