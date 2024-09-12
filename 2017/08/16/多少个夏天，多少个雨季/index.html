@@ -1,0 +1,309 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Follow your heart || 多少个夏天，多少个雨季</title>
+    <meta name="author" content="Nie Zhenjie">
+    <meta name="description" content="聂振杰的个人博客 ">
+    <meta name="keywords" content="Rainbow-Jie ">
+    <link rel="icon" href="/images/avatar.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/maiden-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+    <script type="text/javascript" src="/js/love.js"></script>
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.8.3/jquery.js"></script>
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+    <!-- 雪花特效 -->
+    <script type="text/javascript" src="/js/snow.js"></script>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Follow your heart</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+        <a href="">
+            <span>
+                <a-icon type="compass" theme="filled" />
+            </span>
+            <span>英文博客</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Follow your heart</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+            <a href="">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="compass" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">英文博客</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>多少个夏天，多少个雨季 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2017/8/16
+        </span>
+
+        
+        <span class="category">
+            <a href="/categories/随心写">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" />
+                </span>
+                随心写
+            </a>
+        </span>
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/心情-雨季" style=color:#00bcd4>
+                    心情 雨季
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <p>多少个夏天，多少个雨季</p>
+<p>一声沉闷的雷声在不远处奏响，我恍然一抬头，乌云四起。</p>
+<p>不知不觉间，乌云就这样地爬上了我的窗，着实令我吓得不轻。夏季，本身就是个多雨的季节，就在此刻，竟只是第三场雨，确实有些古怪。不去想那些繁琐的原因，但且无心地发现，这午后的乌云，竟也是别样美丽。</p>
+<span id="more"></span>
+<p>一大块，一大块的云缓慢的飘动着，没有所谓的“黑云压城城欲摧”，只是些暗淡而已。我喜欢这样的颜色，淡淡的，有轻纱般的轻柔。在此衬映之下，乌云下的一切事物却没有被一丝黑暗笼罩，而是出奇的发亮。也许，这就是我喜欢的原因吧。</p>
+<p>雷声又从不远处敲起，似怒，似悲，似喜，又似哀。</p>
+<p>于是苍天的眼泪还是忍不住地，掉了下来。</p>
+<p>可雨是连绵的，是有情的。它无色，无声。但让人不禁停下脚步，夏季的雨，真是别有一番滋味。于是我不知为何惊喜，或者说为何而哀。才发现，自己的心里，的确该下一场雨。世界在此刻静了下来，看的远了，心也远了。</p>
+<p>乌云还是不肯离去，轻轻地萦绕、蔓延。好似一缕烟尘，慢慢地抚过心里，于是想起一些人、一些事。回忆便如这雨水一般一泻千里，哪怕只是随心所想，随心所感。人就是这样一个多情的动物，容易被易变的俗尘所困扰着，我也便如此。茫茫思绪之间，便多了一份定数，一份慰藉。渐渐地，雨小了，乌云呢，也散去了。窗外的树还傲然挺立，只是被夏末冲刷了最后一次泪痕。没有变，一切都还是如此。</p>
+<p>曾经多少个夏天，我在乎呢。</p>
+<p>又有多少个雨季，我仍旧记得呢。</p>
+<p>于是为自己而感到惋惜，但又欣喜不已。因为这一次，我终于抓住了它。想到这，嘴角泛起一抹笑意。</p>
+<p>窗外又响起了几声雷鸣，舒缓而不失风度，仿佛向我诉说，最后的告别。</p>
+<p>聂振杰</p>
+<p>2017.8.16</p>
+
+    </div>
+
+    
+</div>
+                    
+    <footer id="footer">
+        <div class="footer-wrap">
+            <div>
+                © 2018 - 2024
+                        Follow your heart
+                            <span class="footer-icon">
+                                <a-icon type="flag" theme="filled" /></span>
+                            @Nie Zhenjie
+            </div>
+            <div></div>
+            <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                    target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+            
+        </div>
+
+    </footer>
+
+    <script src="/js/highlight.min.js"></script>
+    <script src="/js/particle.js"></script>
+    <!--动态线条背景-->
+    <script type="text/javascript" color="180,230,190" opacity='0.9' zIndex="-2" count="230"
+        src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+        </script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+
+</html>
