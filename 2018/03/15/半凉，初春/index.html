@@ -90,13 +90,6 @@
             <span>tags</span>
         </a>
         
-        <a href="">
-            <span>
-                <a-icon type="compass" theme="filled" />
-            </span>
-            <span>英文博客</span>
-        </a>
-        
     </div>
 
     <div :class="'phone-menu ' + menu_show" id="phone-menu">
@@ -153,15 +146,6 @@
                 </div>
             </a>
             
-            <a href="">
-                <div class="item">
-                    <div style="min-width:20px; max-width:50px; width: 10%">
-                        <a-icon type="compass" theme="filled" />
-                    </div>
-                    <div style="min-width:100px;max-width: 150%;width: 20%;">英文博客</div>
-                </div>
-            </a>
-            
         </div>
         <div class="curtain" v-show="menu_show"></div>
     </div>
@@ -204,7 +188,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/心情-离别" style=color:#ff7d73>
+                <a href="/tags/心情-离别" style=color:#1bccbc>
                     心情 离别
                 </a>
             </span>
@@ -229,6 +213,12 @@
 
     </div>
 
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
     
 </div>
                     
@@ -298,6 +288,21 @@
             }
         }
     })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: 'Ov23liku76yX6IoFnvzK',
+        clientSecret: '05ecf98c119aada4966f74876687add59ccd09eb',
+        repo: 'Gitalk-Repo',      // The repository of store comments,
+        owner: 'Rainbow-Jie',
+        admin: ['Rainbow-Jie'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
 </script>
 
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
