@@ -55,40 +55,55 @@
             <span class="title">Follow your heart</span>
         </a>
         
-        <a href="/">
-            <span>
-                <a-icon type="home" theme="filled" />
-            </span>
-            <span>home</span>
-        </a>
+            
+                <!-- 其他按钮保持原样 -->
+                <a href="/">
+                    <span>
+                        <a-icon type="home" theme="filled" />
+                    </span>
+                    <span>home</span>
+                </a>
+            
         
-        <a href="">
-            <span>
-                <a-icon type="idcard" theme="filled" />
-            </span>
-            <span>about</span>
-        </a>
+            
+                <!-- About按钮：改为span，禁用跳转，添加专属class -->
+                <span class="menu-item about-qrcode-btn" style="cursor: pointer; display: inline-flex; align-items: center; padding: 0 10px; height: 100%;">
+                    <span>
+                        <a-icon type="idcard" theme="filled" />
+                    </span>
+                    <span>about</span>
+                </span>
+            
         
-        <a href="/archives">
-            <span>
-                <a-icon type="folder" theme="filled" />
-            </span>
-            <span>archives</span>
-        </a>
+            
+                <!-- 其他按钮保持原样 -->
+                <a href="/archives">
+                    <span>
+                        <a-icon type="folder" theme="filled" />
+                    </span>
+                    <span>archives</span>
+                </a>
+            
         
-        <a href="/categories">
-            <span>
-                <a-icon type="book" theme="filled" />
-            </span>
-            <span>categories</span>
-        </a>
+            
+                <!-- 其他按钮保持原样 -->
+                <a href="/categories">
+                    <span>
+                        <a-icon type="book" theme="filled" />
+                    </span>
+                    <span>categories</span>
+                </a>
+            
         
-        <a href="/tags">
-            <span>
-                <a-icon type="tags" theme="filled" />
-            </span>
-            <span>tags</span>
-        </a>
+            
+                <!-- 其他按钮保持原样 -->
+                <a href="/tags">
+                    <span>
+                        <a-icon type="tags" theme="filled" />
+                    </span>
+                    <span>tags</span>
+                </a>
+            
         
     </div>
 
@@ -101,50 +116,63 @@
         </div>
         <div class="items" v-show="menu_show">
             
-            <a href="/">
-                <div class="item">
-                    <div style="min-width:20px; max-width:50px; width: 10%">
-                        <a-icon type="home" theme="filled" />
-                    </div>
-                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
-                </div>
-            </a>
+                
+                    <!-- 其他移动端按钮保持原样 -->
+                    <a href="/">
+                        <div class="item">
+                            <div style="min-width:20px; max-width:50px; width: 10%">
+                                <a-icon type="home" theme="filled" />
+                            </div>
+                            <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                        </div>
+                    </a>
+                
             
-            <a href="">
-                <div class="item">
-                    <div style="min-width:20px; max-width:50px; width: 10%">
-                        <a-icon type="idcard" theme="filled" />
+                
+                    <!-- 移动端About按钮：改为div，禁用跳转 -->
+                    <div class="item about-qrcode-btn-mobile" style="cursor: pointer; display: flex; align-items: center; padding: 5px 10px;">
+                        <div style="min-width:20px; max-width:50px; width: 10%">
+                            <a-icon type="idcard" theme="filled" />
+                        </div>
+                        <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
                     </div>
-                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
-                </div>
-            </a>
+                
             
-            <a href="/archives">
-                <div class="item">
-                    <div style="min-width:20px; max-width:50px; width: 10%">
-                        <a-icon type="folder" theme="filled" />
-                    </div>
-                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
-                </div>
-            </a>
+                
+                    <!-- 其他移动端按钮保持原样 -->
+                    <a href="/archives">
+                        <div class="item">
+                            <div style="min-width:20px; max-width:50px; width: 10%">
+                                <a-icon type="folder" theme="filled" />
+                            </div>
+                            <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                        </div>
+                    </a>
+                
             
-            <a href="/categories">
-                <div class="item">
-                    <div style="min-width:20px; max-width:50px; width: 10%">
-                        <a-icon type="book" theme="filled" />
-                    </div>
-                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
-                </div>
-            </a>
+                
+                    <!-- 其他移动端按钮保持原样 -->
+                    <a href="/categories">
+                        <div class="item">
+                            <div style="min-width:20px; max-width:50px; width: 10%">
+                                <a-icon type="book" theme="filled" />
+                            </div>
+                            <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                        </div>
+                    </a>
+                
             
-            <a href="/tags">
-                <div class="item">
-                    <div style="min-width:20px; max-width:50px; width: 10%">
-                        <a-icon type="tags" theme="filled" />
-                    </div>
-                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
-                </div>
-            </a>
+                
+                    <!-- 其他移动端按钮保持原样 -->
+                    <a href="/tags">
+                        <div class="item">
+                            <div style="min-width:20px; max-width:50px; width: 10%">
+                                <a-icon type="tags" theme="filled" />
+                            </div>
+                            <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                        </div>
+                    </a>
+                
             
         </div>
         <div class="curtain" v-show="menu_show"></div>
@@ -182,7 +210,7 @@
                         
                         <span class="tag">
                             
-                            <a href="/tags/心情-孤独" style=color:#879cff>
+                            <a href="/tags/心情-孤独" style=color:#00bcd4>
                                 心情 孤独
                             </a>
                         </span>
@@ -219,7 +247,7 @@
                         
                         <span class="tag">
                             
-                            <a href="/tags/心情-离别" style=color:#1bccbc>
+                            <a href="/tags/心情-离别" style=color:#ff7d73>
                                 心情 离别
                             </a>
                         </span>
@@ -256,7 +284,7 @@
                         
                         <span class="tag">
                             
-                            <a href="/tags/心情-感悟" style=color:#1bccbc>
+                            <a href="/tags/心情-感悟" style=color:#879cff>
                                 心情 感悟
                             </a>
                         </span>
@@ -293,7 +321,7 @@
                         
                         <span class="tag">
                             
-                            <a href="/tags/心情-感伤" style=color:#00bcd4>
+                            <a href="/tags/心情-感伤" style=color:#1bccbc>
                                 心情 感伤
                             </a>
                         </span>
@@ -367,7 +395,7 @@
                         
                         <span class="tag">
                             
-                            <a href="/tags/心情-感想" style=color:#1bccbc>
+                            <a href="/tags/心情-感想" style=color:#00bcd4>
                                 心情 感想
                             </a>
                         </span>
@@ -404,7 +432,7 @@
                         
                         <span class="tag">
                             
-                            <a href="/tags/心情-雨季" style=color:#ff7d73>
+                            <a href="/tags/心情-雨季" style=color:#ffa2c4>
                                 心情 雨季
                             </a>
                         </span>
@@ -446,6 +474,95 @@
             </div>
         </transition>
     </div>
+<!-- 微信二维码弹窗 -->
+<div id="qrcodeModal" style="
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.6);
+  z-index: 9999;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(2px);
+">
+  <div style="
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    text-align: center;
+    max-width: 90%;
+  ">
+    <span id="closeModal" style="
+      display: block;
+      text-align: right;
+      font-size: 20px;
+      cursor: pointer;
+      color: #666;
+      margin-bottom: 10px;
+    ">×</span>
+    <img src="/images/wx-qrcode.png" alt="微信二维码" style="
+      width: 200px;
+      height: 200px;
+      margin: 0 auto;
+      max-width: 100%;
+    ">
+    <p style="margin-top: 10px; font-size: 14px; color: #333;">扫码添加微信</p>
+  </div>
+</div>
+
+<script>
+// 页面完全加载后绑定事件
+window.onload = function() {
+  // 获取弹窗和关闭按钮
+  const modal = document.getElementById('qrcodeModal');
+  const closeBtn = document.getElementById('closeModal');
+
+  // 绑定桌面端About按钮
+  const aboutBtnDesktop = document.querySelector('.about-qrcode-btn');
+  if (aboutBtnDesktop) {
+    aboutBtnDesktop.addEventListener('click', function() {
+      modal.style.display = 'flex';
+      // 关闭移动端菜单（如果打开）
+      const phoneMenu = document.getElementById('phone-menu');
+      if (phoneMenu) phoneMenu.classList.remove('active');
+    });
+  }
+
+  // 绑定移动端About按钮
+  const aboutBtnMobile = document.querySelector('.about-qrcode-btn-mobile');
+  if (aboutBtnMobile) {
+    aboutBtnMobile.addEventListener('click', function() {
+      modal.style.display = 'flex';
+      // 关闭移动端菜单
+      const menuShowEl = document.querySelector('[v-show="menu_show"]');
+      if (menuShowEl) menuShowEl.style.display = 'none';
+    });
+  }
+
+  // 关闭弹窗：点击×
+  closeBtn.addEventListener('click', function() {
+    modal.style.display = 'none';
+  });
+
+  // 关闭弹窗：点击外部
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
+
+  // 关闭弹窗：按ESC键
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      modal.style.display = 'none';
+    }
+  });
+};
+</script>
 
     <script>
     new Vue({
