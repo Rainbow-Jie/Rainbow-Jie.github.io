@@ -189,22 +189,33 @@
         
         
         <span>
-            <a href="/tags/心情-雨季/" style='background:linear-gradient(to right, #fbc2eb 0%, #bbd4ff 100%)'>
+            <a href="/tags/心情-离别/" style=background:#ff7d73>
                 <span class="icon">
                     <a-icon type="tag" theme="filled" />
                 </span>
-                心情 雨季
+                心情 离别
             </a>
         </span>
         
         
         
         <span>
-            <a href="/tags/心情-离别/" style=background:#1bccbc>
+            <a href="/tags/心情-孤独/" style=background:#00bcd4>
                 <span class="icon">
                     <a-icon type="tag" theme="filled" />
                 </span>
-                心情 离别
+                心情 孤独
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/tags/心情-感想/" style=background:#ff7d73>
+                <span class="icon">
+                    <a-icon type="tag" theme="filled" />
+                </span>
+                心情 感想
             </a>
         </span>
         
@@ -222,29 +233,18 @@
         
         
         <span>
-            <a href="/tags/心情-孤独/" style=background:#879cff>
+            <a href="/tags/心情-雨季/" style='background:linear-gradient(to right, #fbc2eb 0%, #bbd4ff 100%)'>
                 <span class="icon">
                     <a-icon type="tag" theme="filled" />
                 </span>
-                心情 孤独
+                心情 雨季
             </a>
         </span>
         
         
         
         <span>
-            <a href="/tags/心情-感想/" style=background:#879cff>
-                <span class="icon">
-                    <a-icon type="tag" theme="filled" />
-                </span>
-                心情 感想
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/心情-感悟/" style=background:#ff7d73>
+            <a href="/tags/心情-感悟/" style=background:#00bcd4>
                 <span class="icon">
                     <a-icon type="tag" theme="filled" />
                 </span>
@@ -283,7 +283,7 @@
                             
                             <span class="tag">
                                 
-                                <a href="/tags/心情-雨季" style=color:#ff7d73>
+                                <a href="/tags/心情-雨季" style=color:#00bcd4>
                                     心情 雨季
                                 </a>
                             </span>
@@ -330,145 +330,6 @@
             </div>
         </transition>
     </div>
-<!-- 微信二维码弹窗 -->
-<div id="qrcodeModal" style="
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0,0,0,0.6);
-  z-index: 9999;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  backdrop-filter: blur(2px);
-">
-  <div style="
-    background: #fff;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-    text-align: center;
-    max-width: 90%;
-  ">
-    <span id="closeModal" style="
-      display: block;
-      text-align: right;
-      font-size: 20px;
-      cursor: pointer;
-      color: #666;
-      margin-bottom: 10px;
-    ">×</span>
-    <img src="/images/wx-qrcode.png" alt="微信二维码" style="
-      width: 200px;
-      height: 200px;
-      margin: 0 auto;
-      max-width: 100%;
-    ">
-    <p style="margin-top: 10px; font-size: 14px; color: #333;">扫码添加微信</p>
-  </div>
-</div>
-
-<script>
-// 页面完全加载后绑定事件
-window.onload = function() {
-  // 获取弹窗和关闭按钮
-  const modal = document.getElementById('qrcodeModal');
-  const closeBtn = document.getElementById('closeModal');
-
-  // 绑定桌面端About按钮
-  const aboutBtnDesktop = document.querySelector('.about-qrcode-btn');
-  if (aboutBtnDesktop) {
-    aboutBtnDesktop.addEventListener('click', function() {
-      modal.style.display = 'flex';
-      // 关闭移动端菜单（如果打开）
-      const phoneMenu = document.getElementById('phone-menu');
-      if (phoneMenu) phoneMenu.classList.remove('active');
-    });
-  }
-
-  // 绑定移动端About按钮
-  const aboutBtnMobile = document.querySelector('.about-qrcode-btn-mobile');
-  if (aboutBtnMobile) {
-    aboutBtnMobile.addEventListener('click', function() {
-      modal.style.display = 'flex';
-      // 关闭移动端菜单
-      const menuShowEl = document.querySelector('[v-show="menu_show"]');
-      if (menuShowEl) menuShowEl.style.display = 'none';
-    });
-  }
-
-  // 关闭弹窗：点击×
-  closeBtn.addEventListener('click', function() {
-    modal.style.display = 'none';
-  });
-
-  // 关闭弹窗：点击外部
-  modal.addEventListener('click', function(e) {
-    if (e.target === modal) {
-      modal.style.display = 'none';
-    }
-  });
-
-  // 关闭弹窗：按ESC键
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-      modal.style.display = 'none';
-    }
-  });
-};
-</script>
-
-<script>
-// 页面加载完成后执行
-document.addEventListener('DOMContentLoaded', function() {
-  // 1. 找到所有指向 /about 的链接
-  const aboutLinks = document.querySelectorAll('a[href="/about"]');
-
-  aboutLinks.forEach(link => {
-    // 2. 创建一个新的 span 元素来替换 a 标签
-    const span = document.createElement('span');
-    // 复制所有样式和类名，保持外观一致
-    span.className = link.className;
-    span.style.cssText = link.style.cssText;
-    span.style.cursor = 'pointer'; // 确保鼠标悬浮是手型
-    // 复制内部 HTML（包括图标和文字）
-    span.innerHTML = link.innerHTML;
-
-    // 3. 为新的 span 绑定点击事件，显示二维码弹窗
-    span.addEventListener('click', function() {
-      const modal = document.getElementById('qrcodeModal');
-      if (modal) {
-        modal.style.display = 'flex';
-      }
-    });
-
-    // 4. 用新的 span 替换掉旧的 a 标签
-    link.parentNode.replaceChild(span, link);
-  });
-
-  // 5. （可选）为移动端菜单中的 About 按钮也做同样处理
-  const mobileAboutLinks = document.querySelectorAll('#phone-menu a[href="/about"]');
-  mobileAboutLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault(); // 阻止跳转
-      const modal = document.getElementById('qrcodeModal');
-      if (modal) {
-        modal.style.display = 'flex';
-      }
-      // 关闭移动端菜单
-      const phoneMenu = document.getElementById('phone-menu');
-      if (phoneMenu) {
-        phoneMenu.classList.remove('active');
-        phoneMenu.classList.remove('menu_show');
-        // 触发 Vue 的响应式更新（如果主题使用了 Vue）
-        phoneMenu.setAttribute(':class', "'phone-menu ' + false");
-      }
-    });
-  });
-});
-</script>
 
     <script>
     new Vue({
