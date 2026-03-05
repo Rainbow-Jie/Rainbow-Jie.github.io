@@ -189,7 +189,7 @@
         
         
         <span>
-            <a href="/categories/随心写/" style=background:#ff7d73>
+            <a href="/categories/随心写/" style=background:#00bcd4>
                 <span class="icon">
                     <a-icon type="book" theme="filled" /></span>
                 随心写
@@ -236,16 +236,69 @@
         </transition>
     </div>
 
-    <!-- 二维码弹窗 -->
+<!-- 微信二维码弹窗（最终优化版） -->
 <div id="qrcodeModal" style="
-  position:fixed; top:0; left:0; width:100vw; height:100vh;
-  background:rgba(0,0,0,0.7); z-index:999999;
-  display:none; justify-content:center; align-items:center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+  z-index: 999999;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s ease;
 ">
-  <div style="background:#fff; padding:20px; border-radius:10px; text-align:center;">
-    <div id="closeModal" style="text-align:right; cursor:pointer; font-size:20px;">×</div>
-    <img src="/images/wx-qrcode.png" style="width:200px;height:200px;">
-    <p>扫码加我微信</p>
+  <div style="
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 28px 24px;
+    max-width: 320px;
+    width: 90%;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+    position: relative;
+    text-align: center;
+  ">
+    <!-- 关闭按钮 -->
+    <span id="closeModal" style="
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      font-size: 20px;
+      color: #999;
+      cursor: pointer;
+      transition: color 0.2s;
+    " onmouseover="this.style.color='#333'" onmouseout="this.style.color='#999'">×</span>
+
+    <!-- 微信图标 + 提示 -->
+    <div style="margin-bottom: 16px;">
+      <img src="https://cdn.jsdelivr.net/npm/simple-icons@9.0.0/icons/wechat.svg" alt="微信图标" style="
+        width: 40px;
+        height: 40px;
+        margin-bottom: 8px;
+      ">
+      <div style="font-size: 12px; color: #999; margin-top: 2px;">扫码添加微信</div>
+    </div>
+
+    <!-- 二维码（调高高度，保持比例） -->
+    <img src="/images/wx-qrcode.png" alt="微信二维码" style="
+      width: 200px;
+      height: 220px;
+      border-radius: 8px;
+      margin: 0 auto 16px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    ">
+
+    <!-- 底部提示 -->
+    <div style="
+      font-size: 13px;
+      color: #666;
+      line-height: 1.5;
+    ">
+      扫一扫上面的二维码图案，加我为好友
+    </div>
   </div>
 </div>
 
@@ -258,19 +311,25 @@ document.body.addEventListener('click', function(e) {
   if (txt === 'about') {
     e.preventDefault();
     e.stopPropagation();
-    document.getElementById('qrcodeModal').style.display = 'flex';
+    const modal = document.getElementById('qrcodeModal');
+    modal.style.display = 'flex';
+    setTimeout(() => modal.style.opacity = '1', 10); // 淡入动画
   }
 }, true);
 
 // 关闭
 document.getElementById('closeModal').onclick = function() {
-  document.getElementById('qrcodeModal').style.display = 'none';
+  const modal = document.getElementById('qrcodeModal');
+  modal.style.opacity = '0';
+  setTimeout(() => modal.style.display = 'none', 300);
 }
 document.getElementById('qrcodeModal').onclick = function(e) {
-  if (e.target === this) this.style.display = 'none';
+  if (e.target === this) {
+    this.style.opacity = '0';
+    setTimeout(() => this.style.display = 'none', 300);
+  }
 }
 </script>
-
     <script>
     new Vue({
         el: "#layout",
