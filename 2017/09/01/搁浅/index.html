@@ -216,7 +216,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/心情-感伤" style=color:#879cff>
+                <a href="/tags/心情-感伤" style=color:#1bccbc>
                     心情 感伤
                 </a>
             </span>
@@ -327,55 +327,55 @@
 </div>
 
 <script>
-// 页面完全加载后绑定事件
+// 页面完全加载后执行（确保DOM渲染完成）
 window.onload = function() {
-  // 获取弹窗和关闭按钮
+  // 1. 用精准选择器找到About按钮
+  const aboutBtn = document.querySelector("#menu > div.desktop-menu > span > span:nth-child(2)");
   const modal = document.getElementById('qrcodeModal');
   const closeBtn = document.getElementById('closeModal');
 
-  // 绑定桌面端About按钮
-  const aboutBtnDesktop = document.querySelector('.about-qrcode-btn');
-  if (aboutBtnDesktop) {
-    aboutBtnDesktop.addEventListener('click', function() {
-      modal.style.display = 'flex';
-      // 关闭移动端菜单（如果打开）
-      const phoneMenu = document.getElementById('phone-menu');
-      if (phoneMenu) phoneMenu.classList.remove('active');
+  // 2. 绑定About按钮点击事件（核心）
+  if (aboutBtn) {
+    aboutBtn.style.cursor = 'pointer'; // 鼠标悬浮显示手型
+    aboutBtn.addEventListener('click', function() {
+      modal.style.display = 'flex'; // 显示弹窗
+      console.log('About按钮点击成功，弹窗已显示'); // 调试用，可删除
     });
+  } else {
+    console.log('未找到About按钮，请检查选择器是否正确'); // 调试用
   }
 
-  // 绑定移动端About按钮
-  const aboutBtnMobile = document.querySelector('.about-qrcode-btn-mobile');
-  if (aboutBtnMobile) {
-    aboutBtnMobile.addEventListener('click', function() {
-      modal.style.display = 'flex';
-      // 关闭移动端菜单
-      const menuShowEl = document.querySelector('[v-show="menu_show"]');
-      if (menuShowEl) menuShowEl.style.display = 'none';
-    });
-  }
-
-  // 关闭弹窗：点击×
+  // 3. 关闭弹窗逻辑
   closeBtn.addEventListener('click', function() {
     modal.style.display = 'none';
   });
 
-  // 关闭弹窗：点击外部
   modal.addEventListener('click', function(e) {
     if (e.target === modal) {
       modal.style.display = 'none';
     }
   });
 
-  // 关闭弹窗：按ESC键
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
       modal.style.display = 'none';
     }
   });
+
+  // 4. 适配移动端About按钮（兜底）
+  const mobileAboutBtn = document.querySelector("#phone-menu .item span:nth-child(2)");
+  if (mobileAboutBtn) {
+    mobileAboutBtn.style.cursor = 'pointer';
+    mobileAboutBtn.addEventListener('click', function(e) {
+      e.stopPropagation(); // 阻止事件冒泡
+      modal.style.display = 'flex';
+      // 关闭移动端菜单
+      const phoneMenu = document.getElementById('phone-menu');
+      phoneMenu.classList.remove('menu_show');
+    });
+  }
 };
 </script>
-
     <script>
     new Vue({
         el: "#layout",
