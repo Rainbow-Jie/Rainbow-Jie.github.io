@@ -284,7 +284,7 @@
                         
                         <span class="tag">
                             
-                            <a href="/tags/心情-感悟" style=color:#ff7d73>
+                            <a href="/tags/心情-感悟" style=color:#00bcd4>
                                 心情 感悟
                             </a>
                         </span>
@@ -321,7 +321,7 @@
                         
                         <span class="tag">
                             
-                            <a href="/tags/心情-感伤" style=color:#879cff>
+                            <a href="/tags/心情-感伤" style=color:#ff7d73>
                                 心情 感伤
                             </a>
                         </span>
@@ -358,7 +358,7 @@
                         
                         <span class="tag">
                             
-                            <a href="/tags/心情-感想" style=color:#1bccbc>
+                            <a href="/tags/心情-感想" style=color:#ff7d73>
                                 心情 感想
                             </a>
                         </span>
@@ -395,7 +395,7 @@
                         
                         <span class="tag">
                             
-                            <a href="/tags/心情-感想" style=color:#ffa2c4>
+                            <a href="/tags/心情-感想" style=color:#879cff>
                                 心情 感想
                             </a>
                         </span>
@@ -432,7 +432,7 @@
                         
                         <span class="tag">
                             
-                            <a href="/tags/心情-雨季" style=color:#ff7d73>
+                            <a href="/tags/心情-雨季" style=color:#ffa2c4>
                                 心情 雨季
                             </a>
                         </span>
@@ -562,6 +562,56 @@ window.onload = function() {
     }
   });
 };
+</script>
+
+<script>
+// 页面加载完成后执行
+document.addEventListener('DOMContentLoaded', function() {
+  // 1. 找到所有指向 /about 的链接
+  const aboutLinks = document.querySelectorAll('a[href="/about"]');
+
+  aboutLinks.forEach(link => {
+    // 2. 创建一个新的 span 元素来替换 a 标签
+    const span = document.createElement('span');
+    // 复制所有样式和类名，保持外观一致
+    span.className = link.className;
+    span.style.cssText = link.style.cssText;
+    span.style.cursor = 'pointer'; // 确保鼠标悬浮是手型
+    // 复制内部 HTML（包括图标和文字）
+    span.innerHTML = link.innerHTML;
+
+    // 3. 为新的 span 绑定点击事件，显示二维码弹窗
+    span.addEventListener('click', function() {
+      const modal = document.getElementById('qrcodeModal');
+      if (modal) {
+        modal.style.display = 'flex';
+      }
+    });
+
+    // 4. 用新的 span 替换掉旧的 a 标签
+    link.parentNode.replaceChild(span, link);
+  });
+
+  // 5. （可选）为移动端菜单中的 About 按钮也做同样处理
+  const mobileAboutLinks = document.querySelectorAll('#phone-menu a[href="/about"]');
+  mobileAboutLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault(); // 阻止跳转
+      const modal = document.getElementById('qrcodeModal');
+      if (modal) {
+        modal.style.display = 'flex';
+      }
+      // 关闭移动端菜单
+      const phoneMenu = document.getElementById('phone-menu');
+      if (phoneMenu) {
+        phoneMenu.classList.remove('active');
+        phoneMenu.classList.remove('menu_show');
+        // 触发 Vue 的响应式更新（如果主题使用了 Vue）
+        phoneMenu.setAttribute(':class', "'phone-menu ' + false");
+      }
+    });
+  });
+});
 </script>
 
     <script>
