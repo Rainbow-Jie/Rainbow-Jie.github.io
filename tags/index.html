@@ -62,7 +62,7 @@
             <span>home</span>
         </a>
         
-        <a href="javascript:void(0)">
+        <a href="">
             <span>
                 <a-icon type="idcard" theme="filled" />
             </span>
@@ -110,7 +110,7 @@
                 </div>
             </a>
             
-            <a href="javascript:void(0)">
+            <a href="">
                 <div class="item">
                     <div style="min-width:20px; max-width:50px; width: 10%">
                         <a-icon type="idcard" theme="filled" />
@@ -161,7 +161,7 @@
         
         
         <span>
-            <a href="/tags/心情-离别/" style=background:#00bcd4>
+            <a href="/tags/心情-离别/" style=background:#ffa2c4>
                 <span class="icon">
                     <a-icon type="tag" theme="filled" />
                 </span>
@@ -172,22 +172,11 @@
         
         
         <span>
-            <a href="/tags/心情-雨季/" style=background:#00bcd4>
+            <a href="/tags/心情-雨季/" style=background:#ff7d73>
                 <span class="icon">
                     <a-icon type="tag" theme="filled" />
                 </span>
                 心情 雨季
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/心情-感伤/" style=background:#1bccbc>
-                <span class="icon">
-                    <a-icon type="tag" theme="filled" />
-                </span>
-                心情 感伤
             </a>
         </span>
         
@@ -205,7 +194,18 @@
         
         
         <span>
-            <a href="/tags/心情-感想/" style=background:#ffa2c4>
+            <a href="/tags/心情-感伤/" style=background:#ffa2c4>
+                <span class="icon">
+                    <a-icon type="tag" theme="filled" />
+                </span>
+                心情 感伤
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/tags/心情-感想/" style=background:#00bcd4>
                 <span class="icon">
                     <a-icon type="tag" theme="filled" />
                 </span>
@@ -263,49 +263,71 @@
             </div>
         </transition>
     </div>
-
-<!-- 二维码下拉弹窗 -->
-<div id="qrcodeDropdown" style="
+<!-- 二维码弹窗容器（默认隐藏） -->
+<div id="qrcodeModal" style="
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.6);
+  z-index: 9999;
   display: none;
-  position: absolute;
-  top: 60px;
-  right: 20px;
-  background: #fff;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  z-index: 999;
+  justify-content: center;
+  align-items: center;
 ">
-  <img src="/images/wx-qrcode.png" alt="微信二维码" style="width: 180px; height: 180px; display: block;">
-  <p style="text-align: center; margin-top: 8px; font-size: 14px; color: #666;">扫码加我微信</p>
+  <div style="
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    text-align: center;
+  ">
+    <span id="closeModal" style="
+      display: block;
+      text-align: right;
+      font-size: 20px;
+      cursor: pointer;
+      color: #666;
+      margin-bottom: 10px;
+    ">×</span>
+    <img src="/images/wx-qrcode.png" alt="微信二维码" style="
+      width: 200px;
+      height: 200px;
+      margin: 0 auto;
+    ">
+    <p style="margin-top: 10px; font-size: 14px; color: #333;">扫码添加微信</p>
+  </div>
 </div>
 
+<!-- 核心：全局事件监听，绕过导航栏 DOM 问题 -->
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  // 1. 找到 About 按钮
-  const aboutLink = Array.from(document.querySelectorAll('.menu a')).find(a => a.textContent.trim() === 'About');
-  const dropdown = document.getElementById('qrcodeDropdown');
+// 监听所有点击事件，拦截 About 按钮的点击
+document.addEventListener('click', function(e) {
+  const target = e.target;
+  // 条件1：点击的是 About 按钮（通过文本/链接判断）
+  const isAboutBtn = target.textContent.trim() === 'About' || 
+                     target.href && target.href.endsWith('#about-qrcode');
+  
+  if (isAboutBtn) {
+    e.preventDefault(); // 阻止跳转
+    document.getElementById('qrcodeModal').style.display = 'flex';
+  }
 
-  if (!aboutLink) return;
+  // 关闭弹窗（点击×或外部）
+  if (target.id === 'closeModal' || target.id === 'qrcodeModal') {
+    document.getElementById('qrcodeModal').style.display = 'none';
+  }
+});
 
-  // 2. 点击 About 切换显示/隐藏
-  aboutLink.addEventListener('click', function(e) {
-    e.preventDefault();
-    if (dropdown.style.display === 'block') {
-      dropdown.style.display = 'none';
-    } else {
-      dropdown.style.display = 'block';
-    }
-  });
-
-  // 3. 点击页面其他地方关闭弹窗
-  document.addEventListener('click', function(e) {
-    if (!aboutLink.contains(e.target) && !dropdown.contains(e.target)) {
-      dropdown.style.display = 'none';
-    }
-  });
+// 按ESC键关闭弹窗
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    document.getElementById('qrcodeModal').style.display = 'none';
+  }
 });
 </script>
+
     <script>
     new Vue({
         el: "#layout",
