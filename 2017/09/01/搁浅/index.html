@@ -216,7 +216,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/心情-感伤" style=color:#1bccbc>
+                <a href="/tags/心情-感伤" style=color:#00bcd4>
                     心情 感伤
                 </a>
             </span>
@@ -286,96 +286,113 @@
             </div>
         </transition>
     </div>
-<!-- 微信二维码弹窗 -->
-<div id="qrcodeModal" style="
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0,0,0,0.6);
-  z-index: 9999;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  backdrop-filter: blur(2px);
-">
-  <div style="
-    background: #fff;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-    text-align: center;
-    max-width: 90%;
-  ">
-    <span id="closeModal" style="
-      display: block;
-      text-align: right;
-      font-size: 20px;
-      cursor: pointer;
-      color: #666;
-      margin-bottom: 10px;
-    ">×</span>
-    <img src="/images/wx-qrcode.png" alt="微信二维码" style="
-      width: 200px;
-      height: 200px;
-      margin: 0 auto;
-      max-width: 100%;
+
+    <!-- 微信二维码弹窗 -->
+    <div id="qrcodeModal" style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0,0,0,0.6);
+        z-index: 9999;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        backdrop-filter: blur(2px);
     ">
-    <p style="margin-top: 10px; font-size: 14px; color: #333;">扫码添加微信</p>
-  </div>
-</div>
+        <div style="
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            text-align: center;
+            max-width: 90%;
+        ">
+            <span id="closeModal" style="
+                display: block;
+                text-align: right;
+                font-size: 20px;
+                cursor: pointer;
+                color: #666;
+                margin-bottom: 10px;
+            ">×</span>
+            <img src="/images/wx-qrcode.png" alt="微信二维码" style="
+                width: 200px;
+                height: 200px;
+                margin: 0 auto;
+                max-width: 100%;
+            ">
+            <p style="margin-top: 10px; font-size: 14px; color: #333;">扫码添加微信</p>
+        </div>
+    </div>
 
-<script>
-// 页面完全加载后执行（确保DOM渲染完成）
-window.onload = function() {
-  // 1. 用精准选择器找到About按钮
-  const aboutBtn = document.querySelector("#menu > div.desktop-menu > span > span:nth-child(2)");
-  const modal = document.getElementById('qrcodeModal');
-  const closeBtn = document.getElementById('closeModal');
+    <script>
+    // 适配Vue的核心逻辑：监听页面显示后再绑定事件
+    document.addEventListener('DOMContentLoaded', function() {
+        // 等待Vue渲染完成（轮询检测页面是否显示）
+        const checkPageShow = setInterval(function() {
+            const pageEl = document.querySelector('[v-show="show_page"]');
+            const menuEl = document.getElementById('menu_show');
+            
+            // 页面已显示，开始绑定事件
+            if (pageEl && menuEl) {
+                clearInterval(checkPageShow);
+                initAboutQrcode();
+            }
+        }, 100);
 
-  // 2. 绑定About按钮点击事件（核心）
-  if (aboutBtn) {
-    aboutBtn.style.cursor = 'pointer'; // 鼠标悬浮显示手型
-    aboutBtn.addEventListener('click', function() {
-      modal.style.display = 'flex'; // 显示弹窗
-      console.log('About按钮点击成功，弹窗已显示'); // 调试用，可删除
+        // 核心绑定函数
+        function initAboutQrcode() {
+            const modal = document.getElementById('qrcodeModal');
+            const closeBtn = document.getElementById('closeModal');
+
+            // 1. 全局拦截所有About相关点击（终极兜底）
+            document.addEventListener('click', function(e) {
+                // 匹配文本为About/about的元素
+                const targetText = e.target.textContent?.trim()?.toLowerCase();
+                const parentText = e.target.parentElement?.textContent?.trim()?.toLowerCase();
+                const isAboutText = targetText === 'about' || parentText === 'about';
+                // 匹配菜单区域内的点击
+                const isInMenu = e.target.closest('#menu') || e.target.closest('#menu_show');
+
+                if (isAboutText && isInMenu) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    modal.style.display = 'flex';
+                    console.log('About点击触发，弹窗显示');
+                }
+            }, true);
+
+            // 2. 关闭弹窗逻辑
+            closeBtn.addEventListener('click', function() {
+                modal.style.display = 'none';
+            });
+
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    modal.style.display = 'none';
+                }
+            });
+
+            // 3. 给所有About文字加手型（视觉反馈）
+            const allElements = document.querySelectorAll('*');
+            allElements.forEach(el => {
+                if (el.textContent.trim() === 'About' || el.textContent.trim() === 'about') {
+                    el.style.cursor = 'pointer';
+                    el.style.userSelect = 'none';
+                }
+            });
+        }
     });
-  } else {
-    console.log('未找到About按钮，请检查选择器是否正确'); // 调试用
-  }
+    </script>
 
-  // 3. 关闭弹窗逻辑
-  closeBtn.addEventListener('click', function() {
-    modal.style.display = 'none';
-  });
-
-  modal.addEventListener('click', function(e) {
-    if (e.target === modal) {
-      modal.style.display = 'none';
-    }
-  });
-
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-      modal.style.display = 'none';
-    }
-  });
-
-  // 4. 适配移动端About按钮（兜底）
-  const mobileAboutBtn = document.querySelector("#phone-menu .item span:nth-child(2)");
-  if (mobileAboutBtn) {
-    mobileAboutBtn.style.cursor = 'pointer';
-    mobileAboutBtn.addEventListener('click', function(e) {
-      e.stopPropagation(); // 阻止事件冒泡
-      modal.style.display = 'flex';
-      // 关闭移动端菜单
-      const phoneMenu = document.getElementById('phone-menu');
-      phoneMenu.classList.remove('menu_show');
-    });
-  }
-};
-</script>
     <script>
     new Vue({
         el: "#layout",
