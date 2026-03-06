@@ -215,7 +215,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/心情-感伤" style=color:#1bccbc>
+                <a href="/tags/心情-感伤" style=color:#879cff>
                     心情 感伤
                 </a>
             </span>
@@ -271,6 +271,17 @@
     anonymous: true,
     avatar: 'mp'
   });
+// 关键：页面加载时清空本地草稿，避免跨文章复用
+  document.addEventListener('DOMContentLoaded', () => {
+    // 清除全局草稿缓存
+    localStorage.removeItem('WALINE_COMMENT_BOX_EDITOR');
+    // 强制更新实例，确保编辑器状态重置
+    walineInstance.update({
+      path: 'https://personal-blog-zeta-flame.vercel.app/2017/09/01/%E6%90%81%E6%B5%85/',
+      url: 'https://personal-blog-zeta-flame.vercel.app/2017/09/01/%E6%90%81%E6%B5%85/'
+    });
+  });
+
 </script>
 
 </div>

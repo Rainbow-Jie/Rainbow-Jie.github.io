@@ -215,7 +215,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/心情-感想" style=color:#879cff>
+                <a href="/tags/心情-感想" style=color:#00bcd4>
                     心情 感想
                 </a>
             </span>
@@ -255,6 +255,17 @@
     anonymous: true,
     avatar: 'mp'
   });
+// 关键：页面加载时清空本地草稿，避免跨文章复用
+  document.addEventListener('DOMContentLoaded', () => {
+    // 清除全局草稿缓存
+    localStorage.removeItem('WALINE_COMMENT_BOX_EDITOR');
+    // 强制更新实例，确保编辑器状态重置
+    walineInstance.update({
+      path: 'https://personal-blog-zeta-flame.vercel.app/2026/03/05/%E7%A5%9E%E6%B8%B8%E8%AE%B0/',
+      url: 'https://personal-blog-zeta-flame.vercel.app/2026/03/05/%E7%A5%9E%E6%B8%B8%E8%AE%B0/'
+    });
+  });
+
 </script>
 
 </div>

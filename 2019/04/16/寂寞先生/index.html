@@ -268,6 +268,17 @@
     anonymous: true,
     avatar: 'mp'
   });
+// 关键：页面加载时清空本地草稿，避免跨文章复用
+  document.addEventListener('DOMContentLoaded', () => {
+    // 清除全局草稿缓存
+    localStorage.removeItem('WALINE_COMMENT_BOX_EDITOR');
+    // 强制更新实例，确保编辑器状态重置
+    walineInstance.update({
+      path: 'https://personal-blog-zeta-flame.vercel.app/2019/04/16/%E5%AF%82%E5%AF%9E%E5%85%88%E7%94%9F/',
+      url: 'https://personal-blog-zeta-flame.vercel.app/2019/04/16/%E5%AF%82%E5%AF%9E%E5%85%88%E7%94%9F/'
+    });
+  });
+
 </script>
 
 </div>
