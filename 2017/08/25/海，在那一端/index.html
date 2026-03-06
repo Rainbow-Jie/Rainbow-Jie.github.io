@@ -215,7 +215,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/心情-感想" style=color:#1bccbc>
+                <a href="/tags/心情-感想" style=color:#00bcd4>
                     心情 感想
                 </a>
             </span>
@@ -251,10 +251,12 @@
 <script type="module">
   import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
 
+  const articlePath = '------';
+
   init({
     el: '#waline',
     serverURL: 'https://waline-five-hazel.vercel.app',
-    path: 'https://personal-blog-zeta-flame.vercel.app/2017/08/25/%E6%B5%B7%EF%BC%8C%E5%9C%A8%E9%82%A3%E4%B8%80%E7%AB%AF/',
+    path: articlePath,
     placeholder: '说点什么吧...',
     pageSize: 10,
     lang: 'zh-CN',

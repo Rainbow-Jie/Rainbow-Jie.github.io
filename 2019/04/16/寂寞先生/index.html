@@ -215,7 +215,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/心情-孤独" style=color:#879cff>
+                <a href="/tags/心情-孤独" style=color:#ff7d73>
                     心情 孤独
                 </a>
             </span>
@@ -256,10 +256,12 @@
 <script type="module">
   import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
 
+  const articlePath = '----';
+
   init({
     el: '#waline',
     serverURL: 'https://waline-five-hazel.vercel.app',
-    path: 'https://personal-blog-zeta-flame.vercel.app/2019/04/16/%E5%AF%82%E5%AF%9E%E5%85%88%E7%94%9F/',
+    path: articlePath,
     placeholder: '说点什么吧...',
     pageSize: 10,
     lang: 'zh-CN',
