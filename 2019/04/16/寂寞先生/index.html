@@ -214,7 +214,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/心情-孤独" style=color:#ffa2c4>
+                <a href="/tags/心情-孤独" style=color:#ff7d73>
                     心情 孤独
                 </a>
             </span>
@@ -249,11 +249,12 @@
 
     
 
-
     
-    <div class="giscus-wrapper" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
-      <div id="giscus-container"></div>
+    <!-- 1. 强制设置容器高度 + 背景色，避免空白 -->
+    <div class="giscus-wrapper" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; background: #f8f8f8; min-height: 400px;">
+      <div id="giscus-container" style="width: 100%; height: 100%;"></div>
     </div>
+    <!-- 2. 关闭懒加载 + 强制主题 + 增加加载超时兜底 -->
     <script src="https://giscus.app/client.js"
             data-repo="Rainbow-Jie/blog-giscus"
             data-repo-id="R_kgDORiIQzw"
@@ -266,12 +267,38 @@
             data-input-position="bottom"
             data-theme="dark"
             data-lang="zh-CN"
-            data-loading="lazy"
+            <!-- 关键：去掉懒加载，强制立即加载 -->
             crossorigin="anonymous"
             async>
     </script>
-    
-</div>
+    <!-- 3. 兜底：手动触发 Giscus 加载（解决 iframe 加载异常） -->
+    <script>
+      // 等待页面加载完成后，强制初始化 Giscus
+      window.onload = function() {
+        const giscusFrame = document.querySelector('iframe[src*="giscus.app"]');
+        if (giscusFrame) {
+          giscusFrame.style.width = '100%';
+          giscusFrame.style.height = '500px';
+          giscusFrame.style.border = 'none';
+        } else {
+          // 重新加载 Giscus 脚本
+          const script = document.createElement('script');
+          script.src = 'https://giscus.app/client.js';
+          script.setAttribute('data-repo', 'Rainbow-Jie/blog-giscus');
+          script.setAttribute('data-repo-id', 'R_kgDORiIQzw');
+          script.setAttribute('data-category', 'Announcements');
+          script.setAttribute('data-category-id', 'DIC_kwDORiIQz84C4AGo');
+          script.setAttribute('data-mapping', 'pathname');
+          script.setAttribute('data-theme', 'dark');
+          script.setAttribute('data-lang', 'zh-CN');
+          script.crossOrigin = 'anonymous';
+          script.async = true;
+          document.body.appendChild(script);
+        }
+      };
+    </script>
+
+    </div>
                     
     <footer id="footer">
         <div class="footer-wrap">
