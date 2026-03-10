@@ -214,7 +214,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/心情-离别" style=color:#00bcd4>
+                <a href="/tags/心情-离别" style=color:#ff7d73>
                     心情 离别
                 </a>
             </span>
@@ -436,6 +436,33 @@ document.getElementById('qrcodeModal').onclick = function(e) {
     })
 </script>
 
+
+
+
+<script type="module">
+      import { init } from 'https://unpkg.com/@waline/client@3.13.0/dist/waline.js';
+      // 修复：声明 walineInstance 变量
+      const walineInstance = init({
+        el: '#waline',
+        serverURL: 'https://waline-five-hazel.vercel.app',
+        path: 'https://www.zhenjie-blog.top/2018/03/15/%E5%8D%8A%E5%87%89%EF%BC%8C%E5%88%9D%E6%98%A5/',
+        placeholder: '说点什么吧...',
+        pageSize: 10,
+        lang: 'zh-CN',
+        meta: ['nick', 'mail', 'link'],
+        requiredMeta: ['nick'],
+        anonymous: true,
+        avatar: 'mp'
+      });
+      // 关键：页面加载时清空本地草稿，避免跨文章复用
+      document.addEventListener('DOMContentLoaded', () => {
+        localStorage.removeItem('WALINE_COMMENT_BOX_EDITOR');
+        walineInstance.update({
+          path: 'https://www.zhenjie-blog.top/2018/03/15/%E5%8D%8A%E5%87%89%EF%BC%8C%E5%88%9D%E6%98%A5/',
+          url: 'https://www.zhenjie-blog.top/2018/03/15/%E5%8D%8A%E5%87%89%EF%BC%8C%E5%88%9D%E6%98%A5/'
+        });
+      });
+    </script>
 
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 

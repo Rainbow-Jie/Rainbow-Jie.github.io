@@ -265,47 +265,8 @@
                             
                             <span class="tag">
                                 
-                                <a href="/tags/心情-孤独" style=color:#ffa2c4>
+                                <a href="/tags/心情-孤独" style=color:#1bccbc>
                                     心情 孤独
-                                </a>
-                            </span>
-                            
-                        </span>
-                        
-                    </div>
-                </a-card>
-            </a-timeline-item>
-        </a-timeline>
-        
-        <a-timeline>
-            <a-timeline-item timestamp="2017/8/25" placement="top" color="#a5c2f5">
-                <a-card hoverable>
-                    <div class="item-time">2017/8/25</div>
-                    <a href="/2017/08/25/海，在那一端/">
-                        <h3>海，在那一端</h3>
-                    </a>
-                    <div class="info">
-                        
-                        <span class="category">
-                            <a href="/categories/随心写">
-                                <span class="icon">
-                                    <a-icon type="book" theme="filled" />
-                                </span>
-                                随心写
-                            </a>
-                        </span>
-                        
-
-                        
-                        <span class="tags">
-                            <span class="icon">
-                                <a-icon type="tags" />
-                            </span>
-                            
-                            <span class="tag">
-                                
-                                <a href="/tags/心情-感想" style=color:#ff7d73>
-                                    心情 感想
                                 </a>
                             </span>
                             
@@ -343,7 +304,7 @@
                             
                             <span class="tag">
                                 
-                                <a href="/tags/心情-雨季" style=color:#1bccbc>
+                                <a href="/tags/心情-雨季" style=color:#ffa2c4>
                                     心情 雨季
                                 </a>
                             </span>
@@ -382,8 +343,47 @@
                             
                             <span class="tag">
                                 
-                                <a href="/tags/心情-感伤" style=color:#1bccbc>
+                                <a href="/tags/心情-感伤" style=color:#00bcd4>
                                     心情 感伤
+                                </a>
+                            </span>
+                            
+                        </span>
+                        
+                    </div>
+                </a-card>
+            </a-timeline-item>
+        </a-timeline>
+        
+        <a-timeline>
+            <a-timeline-item timestamp="2017/8/28" placement="top" color="#a5c2f5">
+                <a-card hoverable>
+                    <div class="item-time">2017/8/28</div>
+                    <a href="/2017/08/28/谈，大学前的恋爱/">
+                        <h3>谈，大学前的恋爱</h3>
+                    </a>
+                    <div class="info">
+                        
+                        <span class="category">
+                            <a href="/categories/随心写">
+                                <span class="icon">
+                                    <a-icon type="book" theme="filled" />
+                                </span>
+                                随心写
+                            </a>
+                        </span>
+                        
+
+                        
+                        <span class="tags">
+                            <span class="icon">
+                                <a-icon type="tags" />
+                            </span>
+                            
+                            <span class="tag">
+                                
+                                <a href="/tags/心情-感想" style=color:#ff7d73>
+                                    心情 感想
                                 </a>
                             </span>
                             
@@ -421,7 +421,7 @@
                             
                             <span class="tag">
                                 
-                                <a href="/tags/心情-感悟" style=color:#ffa2c4>
+                                <a href="/tags/心情-感悟" style=color:#879cff>
                                     心情 感悟
                                 </a>
                             </span>
@@ -460,7 +460,7 @@
                             
                             <span class="tag">
                                 
-                                <a href="/tags/心情-感想" style=color:#1bccbc>
+                                <a href="/tags/心情-感想" style=color:#ffa2c4>
                                     心情 感想
                                 </a>
                             </span>
@@ -473,11 +473,11 @@
         </a-timeline>
         
         <a-timeline>
-            <a-timeline-item timestamp="2017/8/28" placement="top" color="#a5c2f5">
+            <a-timeline-item timestamp="2017/8/25" placement="top" color="#a5c2f5">
                 <a-card hoverable>
-                    <div class="item-time">2017/8/28</div>
-                    <a href="/2017/08/28/谈，大学前的恋爱/">
-                        <h3>谈，大学前的恋爱</h3>
+                    <div class="item-time">2017/8/25</div>
+                    <a href="/2017/08/25/海，在那一端/">
+                        <h3>海，在那一端</h3>
                     </a>
                     <div class="info">
                         
@@ -681,6 +681,33 @@ document.getElementById('qrcodeModal').onclick = function(e) {
     })
 </script>
 
+
+
+
+<script type="module">
+      import { init } from 'https://unpkg.com/@waline/client@3.13.0/dist/waline.js';
+      // 修复：声明 walineInstance 变量
+      const walineInstance = init({
+        el: '#waline',
+        serverURL: 'https://waline-five-hazel.vercel.app',
+        path: '',
+        placeholder: '说点什么吧...',
+        pageSize: 10,
+        lang: 'zh-CN',
+        meta: ['nick', 'mail', 'link'],
+        requiredMeta: ['nick'],
+        anonymous: true,
+        avatar: 'mp'
+      });
+      // 关键：页面加载时清空本地草稿，避免跨文章复用
+      document.addEventListener('DOMContentLoaded', () => {
+        localStorage.removeItem('WALINE_COMMENT_BOX_EDITOR');
+        walineInstance.update({
+          path: '',
+          url: ''
+        });
+      });
+    </script>
 
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 
