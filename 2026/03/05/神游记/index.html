@@ -214,7 +214,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/心情-感想" style=color:#879cff>
+                <a href="/tags/心情-感想" style=color:#1bccbc>
                     心情 感想
                 </a>
             </span>
@@ -237,13 +237,11 @@
     
 
     
-    <!-- 修复：适配 Particle 主题的容器样式，强制隔离 -->
+
     <div class="giscus-wrapper" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd; width: 100%; max-width: 1000px; margin-left: auto; margin-right: auto;">
-        <!-- 强制设置 iframe 父容器的基础样式 -->
+
         <div id="giscus-container" style="width: 100%; min-height: 500px; border-radius: 8px; overflow: hidden; box-shadow: 0 0 10px rgba(0,0,0,0.1);"></div>
     </div>
-
-    <!-- 修复：1. 改用国内 CDN 加速 2. 匹配主题的 light 模式（解决白色背景冲突） 3. 关闭所有延迟加载 -->
     <script src="https://cdn.jsdelivr.net/npm/giscus@1/dist/client.js"
             data-repo="Rainbow-Jie/blog-giscus"
             data-repo-id="R_kgDORiIQzw"
@@ -254,32 +252,10 @@
             data-reactions-enabled="1"
             data-emit-metadata="0"
             data-input-position="bottom"
-            <!-- 关键：Particle 主题是浅色背景，改用 light 主题，避免白色融合 -->
             data-theme="light"
             data-lang="zh-CN"
-            <!-- 关键：删除懒加载，改用国内 CDN 加速 -->
             crossorigin="anonymous"
             async>
-    </script>
-
-    <!-- 修复：强制触发 iframe 渲染，解决空白问题 -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // 监听 Giscus 加载完成事件
-            window.addEventListener('message', function(event) {
-                if (event.origin !== 'https://giscus.app') return;
-                if (event.data.giscus?.event === 'rendered') {
-                    // 加载完成后强制设置 iframe 样式
-                    const giscusIframe = document.querySelector('iframe[src*="giscus.app"]');
-                    if (giscusIframe) {
-                        giscusIframe.style.width = '100%';
-                        giscusIframe.style.height = '500px';
-                        giscusIframe.style.border = 'none';
-                        giscusIframe.style.backgroundColor = '#ffffff';
-                    }
-                }
-            });
-        });
     </script>
 
     </div>
