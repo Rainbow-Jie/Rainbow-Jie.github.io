@@ -222,7 +222,7 @@ a {
 }
 #home-posts-wrap {
   position: relative;
-  display: flex;
+  display: inline-flex;
   width: 100%;
   background: #ffedd8;
   z-index: 101;
@@ -231,9 +231,8 @@ a {
   margin-right: 0px;
 }
 #home-list {
-  position: absolute;
-  right: 20px;
-  display: flex;
+  margin-left: 20px;
+  display: inline-flex;
 }
 .home-right-widget {
   width: 260px;
