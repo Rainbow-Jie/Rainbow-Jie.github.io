@@ -58,7 +58,8 @@
   background: #ffedd8;
   z-index: 101;
   border-radius: 10px;
-  margin: auto;
+  margin-left: 300px;
+  margin-right: 0px;
 }
 #home-posts {
   position: relative;
