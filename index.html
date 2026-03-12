@@ -264,7 +264,7 @@
         
         <span class="tag">
             
-            <a href="/tags/心情-感想" style=color:#ffa2c4>
+            <a href="/tags/心情-感想" style=color:#ff7d73>
                 心情 感想
             </a>
         </span>
@@ -324,7 +324,7 @@
         
         <span class="tag">
             
-            <a href="/tags/心情-孤独" style=color:#ff7d73>
+            <a href="/tags/心情-孤独" style=color:#1bccbc>
                 心情 孤独
             </a>
         </span>
@@ -384,7 +384,7 @@
         
         <span class="tag">
             
-            <a href="/tags/心情-离别" style=color:#ff7d73>
+            <a href="/tags/心情-离别" style=color:#1bccbc>
                 心情 离别
             </a>
         </span>
@@ -445,7 +445,7 @@
         
         <span class="tag">
             
-            <a href="/tags/心情-感悟" style=color:#ffa2c4>
+            <a href="/tags/心情-感悟" style=color:#00bcd4>
                 心情 感悟
             </a>
         </span>
@@ -566,7 +566,7 @@
         
         <span class="tag">
             
-            <a href="/tags/心情-感想" style=color:#ff7d73>
+            <a href="/tags/心情-感想" style=color:#00bcd4>
                 心情 感想
             </a>
         </span>
@@ -628,7 +628,7 @@
         
         <span class="tag">
             
-            <a href="/tags/心情-感想" style=color:#1bccbc>
+            <a href="/tags/心情-感想" style=color:#879cff>
                 心情 感想
             </a>
         </span>
@@ -689,7 +689,7 @@
         
         <span class="tag">
             
-            <a href="/tags/心情-雨季" style=color:#ff7d73>
+            <a href="/tags/心情-雨季" style=color:#ffa2c4>
                 心情 雨季
             </a>
         </span>
@@ -816,6 +816,13 @@
             
         </div>
         
+
+       <div class="time-widget">
+       <div class="time-date" id="time-date"></div>
+       <div class="time-clock" id="time-clock"></div>
+       <div class="time-greeting" id="time-greeting"></div>
+       </div>
+
     </a-card>
 </a-affix>
     </div>
@@ -1011,6 +1018,42 @@ document.getElementById('qrcodeModal').onclick = function(e) {
         });
       });
     </script>
+
+
+
+<script>
+  // 实时更新时间函数
+  function updateTimeWidget() {
+    const now = new Date();
+    // 日期+星期
+    const dateStr = now.toLocaleDateString('zh-CN', { 
+      year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' 
+    });
+    // 时分秒（补零）
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+    const timeStr = `${hours}:${minutes}:${seconds}`;
+    // 问候语
+    let greeting = '';
+    if (hours >= 6 && hours < 12) greeting = '早上好 🌞';
+    else if (hours >= 12 && hours < 18) greeting = '下午好 🌤️';
+    else if (hours >= 18 && hours < 22) greeting = '晚上好 🌙';
+    else greeting = '夜深了 🌃，注意休息';
+
+    // 渲染到页面（兼容元素未加载的情况）
+    const dateEl = document.getElementById('time-date');
+    const clockEl = document.getElementById('time-clock');
+    const greetingEl = document.getElementById('time-greeting');
+    if (dateEl) dateEl.textContent = dateStr;
+    if (clockEl) clockEl.textContent = timeStr;
+    if (greetingEl) greetingEl.textContent = greeting;
+  }
+
+  // 初始化+每秒更新
+  updateTimeWidget();
+  setInterval(updateTimeWidget, 1000);
+  </script>
 
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 
