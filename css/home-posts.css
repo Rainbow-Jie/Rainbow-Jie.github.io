@@ -8,6 +8,50 @@
   margin-left: 300px;
   margin-right: 0px;
 }
+.home-right-widget {
+  width: 280px;
+  flex-shrink: 0;
+}
+.like-box {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+.like-question {
+  font-size: 16px;
+  color: #e08ea8;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+.like-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.like-btn padding 10px 20px {
+  background: #fff;
+}
+.like-btn border 2px solid #f8c8d8 {
+  border-radius: 30px;
+  color: #e08ea8;
+  transition: all 0.3s ease;
+}
+.like-btn border 2px solid #f8c8d8 cursor pointer {
+  font-size: 20px;
+}
+.like-btn:hover {
+  transform: scale(1.05);
+}
+.like-btn:hover background #fff5f8 {
+  border-color: #e08ea8;
+}
+.like-btn.liked {
+  background: #ffe6ef;
+  border-color: #e08ea8;
+  color: #d65a8c;
+}
 #home-posts {
   position: relative;
   background: #fff;
