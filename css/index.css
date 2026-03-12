@@ -255,24 +255,25 @@
   width: 85%;
 }
 #home-card .card-style .time-widget {
-  padding: 12px;
+  padding: 14px;
   text-align: center;
   border-bottom: 1px solid #f0f0f0;
   margin-bottom: 10px;
 }
 #home-card .card-style .time-date {
-  font-size: 14px;
+  font-size: 18px;
   color: #666;
   margin-bottom: 4px;
 }
 #home-card .card-style .time-clock {
-  font-size: 18px;
-  font-weight: 600;
-  color: #333;
+  font-size: 48px;
+  font-weight: 700;
+  color: #222;
   margin-bottom: 4px;
+  letter-spacing: 2px;
 }
 #home-card .card-style .time-greeting {
-  font-size: 12px;
+  font-size: 16px;
   color: #888;
 }
 #home-card .card-style .icon-links {
