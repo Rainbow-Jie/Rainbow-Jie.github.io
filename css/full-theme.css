@@ -236,7 +236,7 @@ a {
   display: flex;
 }
 .home-right-widget {
-  width: 280px;
+  width: 260px;
   flex-shrink: 0;
 }
 .like-box {
