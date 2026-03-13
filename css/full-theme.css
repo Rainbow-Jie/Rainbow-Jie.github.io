@@ -693,7 +693,7 @@ a {
 #search-results .search-result-item {
   padding: 5px 15px;
   cursor: pointer;
-  height: 50px;
+  height: 30px;
   text-align: left !important;
   line-height: 30px !important;
   transition: background 0.2s ease;
