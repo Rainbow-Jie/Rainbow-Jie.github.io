@@ -105,6 +105,13 @@
                 </a>
             
         
+
+        <!-- 搜索框容器 -->
+        <div class="search-container">
+           <input type="text" id="search-input" placeholder="搜索文章标题..." autocomplete="off">
+           <!-- 搜索结果下拉框 -->
+           <div id="search-results" class="search-results"></div>
+       </div>
     </div>
 
     <div :class="'phone-menu ' + menu_show" id="phone-menu">
@@ -200,84 +207,6 @@
     <div id="archives">
         
         <a-timeline>
-            <a-timeline-item timestamp="2018/3/15" placement="top" color="#a5c2f5">
-                <a-card hoverable>
-                    <div class="item-time">2018/3/15</div>
-                    <a href="/2018/03/15/半凉，初春/">
-                        <h3>半凉，初春</h3>
-                    </a>
-                    <div class="info">
-                        
-                        <span class="category">
-                            <a href="/categories/随心写">
-                                <span class="icon">
-                                    <a-icon type="book" theme="filled" />
-                                </span>
-                                随心写
-                            </a>
-                        </span>
-                        
-
-                        
-                        <span class="tags">
-                            <span class="icon">
-                                <a-icon type="tags" />
-                            </span>
-                            
-                            <span class="tag">
-                                
-                                <a href="/tags/心情-离别" style=color:#1bccbc>
-                                    心情 离别
-                                </a>
-                            </span>
-                            
-                        </span>
-                        
-                    </div>
-                </a-card>
-            </a-timeline-item>
-        </a-timeline>
-        
-        <a-timeline>
-            <a-timeline-item timestamp="2017/8/16" placement="top" color="#a5c2f5">
-                <a-card hoverable>
-                    <div class="item-time">2017/8/16</div>
-                    <a href="/2017/08/16/多少个夏天，多少个雨季/">
-                        <h3>多少个夏天，多少个雨季</h3>
-                    </a>
-                    <div class="info">
-                        
-                        <span class="category">
-                            <a href="/categories/随心写">
-                                <span class="icon">
-                                    <a-icon type="book" theme="filled" />
-                                </span>
-                                随心写
-                            </a>
-                        </span>
-                        
-
-                        
-                        <span class="tags">
-                            <span class="icon">
-                                <a-icon type="tags" />
-                            </span>
-                            
-                            <span class="tag">
-                                
-                                <a href="/tags/心情-雨季" style=color:#ff7d73>
-                                    心情 雨季
-                                </a>
-                            </span>
-                            
-                        </span>
-                        
-                    </div>
-                </a-card>
-            </a-timeline-item>
-        </a-timeline>
-        
-        <a-timeline>
             <a-timeline-item timestamp="2019/4/16" placement="top" color="#a5c2f5">
                 <a-card hoverable>
                     <div class="item-time">2019/4/16</div>
@@ -304,7 +233,7 @@
                             
                             <span class="tag">
                                 
-                                <a href="/tags/心情-孤独" style=color:#00bcd4>
+                                <a href="/tags/心情-孤独" style=color:#ffa2c4>
                                     心情 孤独
                                 </a>
                             </span>
@@ -317,11 +246,11 @@
         </a-timeline>
         
         <a-timeline>
-            <a-timeline-item timestamp="2017/8/25" placement="top" color="#a5c2f5">
+            <a-timeline-item timestamp="2018/3/15" placement="top" color="#a5c2f5">
                 <a-card hoverable>
-                    <div class="item-time">2017/8/25</div>
-                    <a href="/2017/08/25/海，在那一端/">
-                        <h3>海，在那一端</h3>
+                    <div class="item-time">2018/3/15</div>
+                    <a href="/2018/03/15/半凉，初春/">
+                        <h3>半凉，初春</h3>
                     </a>
                     <div class="info">
                         
@@ -343,47 +272,8 @@
                             
                             <span class="tag">
                                 
-                                <a href="/tags/心情-感想" style=color:#879cff>
-                                    心情 感想
-                                </a>
-                            </span>
-                            
-                        </span>
-                        
-                    </div>
-                </a-card>
-            </a-timeline-item>
-        </a-timeline>
-        
-        <a-timeline>
-            <a-timeline-item timestamp="2026/3/5" placement="top" color="#a5c2f5">
-                <a-card hoverable>
-                    <div class="item-time">2026/3/5</div>
-                    <a href="/2026/03/05/神游记/">
-                        <h3>神游记</h3>
-                    </a>
-                    <div class="info">
-                        
-                        <span class="category">
-                            <a href="/categories/随心写">
-                                <span class="icon">
-                                    <a-icon type="book" theme="filled" />
-                                </span>
-                                随心写
-                            </a>
-                        </span>
-                        
-
-                        
-                        <span class="tags">
-                            <span class="icon">
-                                <a-icon type="tags" />
-                            </span>
-                            
-                            <span class="tag">
-                                
-                                <a href="/tags/心情-感想" style=color:#879cff>
-                                    心情 感想
+                                <a href="/tags/心情-离别" style=color:#00bcd4>
+                                    心情 离别
                                 </a>
                             </span>
                             
@@ -421,7 +311,7 @@
                             
                             <span class="tag">
                                 
-                                <a href="/tags/心情-感伤" style=color:#879cff>
+                                <a href="/tags/心情-感伤" style=color:#ff7d73>
                                     心情 感伤
                                 </a>
                             </span>
@@ -434,11 +324,11 @@
         </a-timeline>
         
         <a-timeline>
-            <a-timeline-item timestamp="2017/8/28" placement="top" color="#a5c2f5">
+            <a-timeline-item timestamp="2017/8/25" placement="top" color="#a5c2f5">
                 <a-card hoverable>
-                    <div class="item-time">2017/8/28</div>
-                    <a href="/2017/08/28/谈，大学前的恋爱/">
-                        <h3>谈，大学前的恋爱</h3>
+                    <div class="item-time">2017/8/25</div>
+                    <a href="/2017/08/25/海，在那一端/">
+                        <h3>海，在那一端</h3>
                     </a>
                     <div class="info">
                         
@@ -461,6 +351,84 @@
                             <span class="tag">
                                 
                                 <a href="/tags/心情-感想" style=color:#ff7d73>
+                                    心情 感想
+                                </a>
+                            </span>
+                            
+                        </span>
+                        
+                    </div>
+                </a-card>
+            </a-timeline-item>
+        </a-timeline>
+        
+        <a-timeline>
+            <a-timeline-item timestamp="2017/8/16" placement="top" color="#a5c2f5">
+                <a-card hoverable>
+                    <div class="item-time">2017/8/16</div>
+                    <a href="/2017/08/16/多少个夏天，多少个雨季/">
+                        <h3>多少个夏天，多少个雨季</h3>
+                    </a>
+                    <div class="info">
+                        
+                        <span class="category">
+                            <a href="/categories/随心写">
+                                <span class="icon">
+                                    <a-icon type="book" theme="filled" />
+                                </span>
+                                随心写
+                            </a>
+                        </span>
+                        
+
+                        
+                        <span class="tags">
+                            <span class="icon">
+                                <a-icon type="tags" />
+                            </span>
+                            
+                            <span class="tag">
+                                
+                                <a href="/tags/心情-雨季" style=color:#879cff>
+                                    心情 雨季
+                                </a>
+                            </span>
+                            
+                        </span>
+                        
+                    </div>
+                </a-card>
+            </a-timeline-item>
+        </a-timeline>
+        
+        <a-timeline>
+            <a-timeline-item timestamp="2026/3/5" placement="top" color="#a5c2f5">
+                <a-card hoverable>
+                    <div class="item-time">2026/3/5</div>
+                    <a href="/2026/03/05/神游记/">
+                        <h3>神游记</h3>
+                    </a>
+                    <div class="info">
+                        
+                        <span class="category">
+                            <a href="/categories/随心写">
+                                <span class="icon">
+                                    <a-icon type="book" theme="filled" />
+                                </span>
+                                随心写
+                            </a>
+                        </span>
+                        
+
+                        
+                        <span class="tags">
+                            <span class="icon">
+                                <a-icon type="tags" />
+                            </span>
+                            
+                            <span class="tag">
+                                
+                                <a href="/tags/心情-感想" style=color:#00bcd4>
                                     心情 感想
                                 </a>
                             </span>
@@ -517,6 +485,45 @@
                     <div class="item-time">2026/3/12</div>
                     <a href="/2026/03/12/至亲之谈/">
                         <h3>至亲之谈</h3>
+                    </a>
+                    <div class="info">
+                        
+                        <span class="category">
+                            <a href="/categories/随心写">
+                                <span class="icon">
+                                    <a-icon type="book" theme="filled" />
+                                </span>
+                                随心写
+                            </a>
+                        </span>
+                        
+
+                        
+                        <span class="tags">
+                            <span class="icon">
+                                <a-icon type="tags" />
+                            </span>
+                            
+                            <span class="tag">
+                                
+                                <a href="/tags/心情-感想" style=color:#1bccbc>
+                                    心情 感想
+                                </a>
+                            </span>
+                            
+                        </span>
+                        
+                    </div>
+                </a-card>
+            </a-timeline-item>
+        </a-timeline>
+        
+        <a-timeline>
+            <a-timeline-item timestamp="2017/8/28" placement="top" color="#a5c2f5">
+                <a-card hoverable>
+                    <div class="item-time">2017/8/28</div>
+                    <a href="/2017/08/28/谈，大学前的恋爱/">
+                        <h3>谈，大学前的恋爱</h3>
                     </a>
                     <div class="info">
                         
@@ -750,6 +757,58 @@ document.getElementById('qrcodeModal').onclick = function(e) {
 
 
 
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const searchInput = document.getElementById('search-input');
+  const searchResults = document.getElementById('search-results');
+  let articles = [];
+
+  // 加载搜索数据
+  fetch('/search.xml')
+    .then(res => res.text())
+    .then(str => {
+      const parser = new DOMParser();
+      const xmlDoc = parser.parseFromString(str, 'text/xml');
+      const entries = xmlDoc.querySelectorAll('entry');
+      articles = Array.from(entries).map(entry => ({
+        title: entry.querySelector('title')?.textContent || '',
+        link: entry.querySelector('url')?.textContent || ''
+      }));
+      console.log('加载到的文章列表：', articles); // 控制台查看是否有数据
+    })
+    .catch(err => console.error('加载搜索数据失败：', err));
+
+  // 模糊搜索逻辑
+  searchInput.addEventListener('input', function() {
+    const kw = this.value.trim().toLowerCase();
+    searchResults.innerHTML = '';
+    if (!kw) {
+      searchResults.style.display = 'none';
+      return;
+    }
+    const matches = articles.filter(a => a.title.toLowerCase().includes(kw));
+    if (matches.length) {
+      searchResults.style.display = 'block';
+      matches.forEach(a => {
+        const div = document.createElement('div');
+        div.className = 'search-result-item';
+        div.innerHTML = `<a href="${a.link}">${a.title}</a>`;
+        searchResults.appendChild(div);
+      });
+    } else {
+      searchResults.style.display = 'block';
+      searchResults.innerHTML = '<div class="no-result">暂无匹配文章</div>';
+    }
+  });
+
+  // 点击空白处关闭结果
+  document.addEventListener('click', e => {
+    if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+      searchResults.style.display = 'none';
+    }
+  });
+});</script>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 
 </html>

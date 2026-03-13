@@ -105,6 +105,13 @@
                 </a>
             
         
+
+        <!-- 搜索框容器 -->
+        <div class="search-container">
+           <input type="text" id="search-input" placeholder="搜索文章标题..." autocomplete="off">
+           <!-- 搜索结果下拉框 -->
+           <div id="search-results" class="search-results"></div>
+       </div>
     </div>
 
     <div :class="'phone-menu ' + menu_show" id="phone-menu">
@@ -469,6 +476,58 @@ document.getElementById('qrcodeModal').onclick = function(e) {
 
 
 
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const searchInput = document.getElementById('search-input');
+  const searchResults = document.getElementById('search-results');
+  let articles = [];
+
+  // 加载搜索数据
+  fetch('/search.xml')
+    .then(res => res.text())
+    .then(str => {
+      const parser = new DOMParser();
+      const xmlDoc = parser.parseFromString(str, 'text/xml');
+      const entries = xmlDoc.querySelectorAll('entry');
+      articles = Array.from(entries).map(entry => ({
+        title: entry.querySelector('title')?.textContent || '',
+        link: entry.querySelector('url')?.textContent || ''
+      }));
+      console.log('加载到的文章列表：', articles); // 控制台查看是否有数据
+    })
+    .catch(err => console.error('加载搜索数据失败：', err));
+
+  // 模糊搜索逻辑
+  searchInput.addEventListener('input', function() {
+    const kw = this.value.trim().toLowerCase();
+    searchResults.innerHTML = '';
+    if (!kw) {
+      searchResults.style.display = 'none';
+      return;
+    }
+    const matches = articles.filter(a => a.title.toLowerCase().includes(kw));
+    if (matches.length) {
+      searchResults.style.display = 'block';
+      matches.forEach(a => {
+        const div = document.createElement('div');
+        div.className = 'search-result-item';
+        div.innerHTML = `<a href="${a.link}">${a.title}</a>`;
+        searchResults.appendChild(div);
+      });
+    } else {
+      searchResults.style.display = 'block';
+      searchResults.innerHTML = '<div class="no-result">暂无匹配文章</div>';
+    }
+  });
+
+  // 点击空白处关闭结果
+  document.addEventListener('click', e => {
+    if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+      searchResults.style.display = 'none';
+    }
+  });
+});</script>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 
 </html>
