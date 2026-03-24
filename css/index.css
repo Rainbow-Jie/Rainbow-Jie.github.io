@@ -97,7 +97,7 @@
   position: relative;
   display: flex;
   width: 100%;
-  background: body-background;
+  background: #fff8fa;
   z-index: 101;
   border-radius: 10px;
   margin: auto;
@@ -226,14 +226,13 @@
   position: absolute;
   bottom: -4px;
   right: -4px;
-  transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: all 0.3s ease;
   box-shadow: 2px 2px 12px 0px go-post-shadow;
 }
 #home-posts .post .go-post:hover {
-  right: -6px;
-  bottom: -6px;
-  box-shadow: -2px -2px 12px 0px go-post-shadow-hover;
-  background: linear-gradient(135deg, #ff6b9d 0%, #e040a0 100%);
+  background: linear-gradient(135deg, #ff7eb3 0%, #f050b0 100%);
+  box-shadow: 0 4px 16px rgba(255,107,157,0.5);
+  transform: translateY(-2px);
 }
 #home-posts .page-current {
   display: flex;
@@ -367,15 +366,17 @@
   font-weight: 500;
 }
 #home-card .card-style .time-clock {
-  font-size: 42px;
+  font-size: 32px;
   font-weight: 800;
   background: go-post;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin-bottom: 4px;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   font-family: code-font-family;
+  white-space: nowrap;
+  overflow: hidden;
 }
 #home-card .card-style .time-greeting {
   font-size: 13px;
