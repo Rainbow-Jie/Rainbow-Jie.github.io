@@ -3,23 +3,28 @@
   src: url("../css/fonts/CascadiaCode.ttf");
 }
 body {
-  background: #f8eff9;
+  background: body-background;
   width: 100%;
   font-family: default-font-family;
   font-weight: 500;
   user-select: none;
   -webkit-user-select: none;
 }
+body ::selection {
+  background: rgba(255,107,157,0.2);
+  color: #c02060;
+}
 * {
   margin: 0;
   padding: 0;
   word-wrap: break-word;
+  box-sizing: border-box;
 }
 ul,
 ol {
   margin-top: 15px !important;
   margin-bottom: 10px !important;
-  line-height: 1.7;
+  line-height: 1.8;
 }
 ul li,
 ol li {
@@ -52,14 +57,14 @@ h5 {
 }
 p {
   margin: 15px 0;
-  line-height: 1.7;
+  line-height: 1.8;
 }
 a {
   text-decoration: none;
 }
 .icon {
   margin-right: 5px;
-  color: label-color;
+  color: label-font;
 }
 .ant-spin,
 .ant-spin-container {
@@ -92,49 +97,49 @@ a {
   color: #000;
 }
 .into-enter-active {
-  animation: into 0.6s;
+  animation: into 0.5s ease-out;
 }
 .into-leave-active {
-  animation: into 0.6s;
+  animation: into 0.5s ease-out;
 }
 @-moz-keyframes into {
   0% {
     opacity: 0;
-    transform: scale(1.1);
+    transform: scale(1.06) translateY(12px);
   }
   100% {
     opacity: 1;
-    transform: scale(1);
+    transform: scale(1) translateY(0);
   }
 }
 @-webkit-keyframes into {
   0% {
     opacity: 0;
-    transform: scale(1.1);
+    transform: scale(1.06) translateY(12px);
   }
   100% {
     opacity: 1;
-    transform: scale(1);
+    transform: scale(1) translateY(0);
   }
 }
 @-o-keyframes into {
   0% {
     opacity: 0;
-    transform: scale(1.1);
+    transform: scale(1.06) translateY(12px);
   }
   100% {
     opacity: 1;
-    transform: scale(1);
+    transform: scale(1) translateY(0);
   }
 }
 @keyframes into {
   0% {
     opacity: 0;
-    transform: scale(1.1);
+    transform: scale(1.06) translateY(12px);
   }
   100% {
     opacity: 1;
-    transform: scale(1);
+    transform: scale(1) translateY(0);
   }
 }
 @-moz-keyframes loading {

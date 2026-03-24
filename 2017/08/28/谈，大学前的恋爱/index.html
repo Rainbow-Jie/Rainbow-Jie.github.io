@@ -27,17 +27,17 @@
 
     <div id="loading"
         style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
-        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
-        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadleft" style="width: 50%;background: linear-gradient(135deg,#ffcce0,#ffe0ec);transition: width 0.65s cubic-bezier(0.77,0,0.18,1);"></div>
+        <div id="loadright" style="width: 50%;background: linear-gradient(135deg,#ffe0ec,#ffcce0);transition: width 0.65s cubic-bezier(0.77,0,0.18,1);"></div>
         <div
             style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
             <div id="loadcontent"
-                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                style="width:340px;height:340px;padding:40px;border-radius:50%;display:flex;justify-content:center;align-items:center;background:rgba(255,255,255,0.9);border:4px solid transparent;background-clip:padding-box;box-shadow:0 0 0 4px rgba(255,107,157,0.3), 0 8px 40px rgba(214,100,130,0.18);text-align:center;opacity:1;transition:opacity 0.35s ease-out;">
                 <div>
-                    <h2>LOADING...</h2>
-                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <h2 style="color:#d63370;font-size:18px;font-weight:700;margin-bottom:8px;letter-spacing:0.1em;">LOADING</h2>
+                    <p style="font-size:12px;color:#b0828e;margin-bottom:14px;">加载过慢请开启缓存</p>
                     <div>
-                        <img src="/dancingkitty.gif" alt="loading">
+                        <img src="/dancingkitty.gif" alt="loading" style="border-radius:50%;width:120px;height:120px;object-fit:cover;">
                     </div>
                 </div>
             </div>
@@ -221,7 +221,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/心情-感想" style=color:#ff7d73>
+                <a href="/tags/心情-感想" style=color:#1bccbc>
                     心情 感想
                 </a>
             </span>
@@ -520,7 +520,8 @@ document.addEventListener('DOMContentLoaded', function() {
       matches.forEach(a => {
         const div = document.createElement('div');
         div.className = 'search-result-item';
-        div.innerHTML = `<a href="${a.link}">${a.title}</a>`;
+        // 内联强制颜色，防止被 menu-color 的 a{color:white} 覆盖
+        div.innerHTML = `<a href="${a.link}" style="color:#2a1a22 !important;font-weight:500;">${a.title}</a>`;
         searchResults.appendChild(div);
       });
     } else {
